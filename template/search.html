@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="content" placeholder="search..">&nbsp;&nbsp;
+    <input type="submit" value="submit" >
+
+    <!-- <div>
+        {% for message in messages %}
+        <h1>{{message}}</h1>
+        {% endfor %}
+    </div> -->
+
+</form>
+<div>
+    {% for res in results %}
+
+    <h1>{{res.content}}</h1>
+    {% endfor %}
+</div>
+{% if messages %}
+{% for message in messages %}
+ {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
